@@ -6,4 +6,4 @@ Written in ReactJS, simply type in a location & the app will display the current
 **Check it out [here!](https://www.benjibenji.com/simple-weather/)**
 
 ### Preview
-![simple weather preview](./previews/berkeley.png)
+![simple weather preview](./previews/tokyo.png)
