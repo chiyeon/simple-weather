@@ -36,7 +36,7 @@ function App() {
   const IsDaylight = (d) => {
     if (typeof weather.main === "undefined")
       return false;
-    return weather.dt < weather.sys.sunrise;
+    return weather.dt > weather.sys.sunrise;
   }
 
   const IsCloudy = () => {
@@ -48,7 +48,7 @@ function App() {
   const IsSnowy = () => {
     if (typeof weather.main === "undefined")
       return false;
-    return weather.weather[0].main === "Snow";
+    return weather.weather[0].main === "Snow" || weather.main.temp < 30;
   }
 
   const IsRaining = () => {
@@ -57,17 +57,23 @@ function App() {
     return weather.weather[0].main === "Rain";
   }
 
+  const GetBackground = () => {
+    if (typeof weather.main === "undefined")
+      return "weather-img background night";
+    return IsDaylight() ? (IsCloudy() ? "weather-img background cloudy" : "weather-img background") : "weather-img background night"
+  }
+
   return (
     <div className="app">
         <div className="weather-container">
-          <div className={IsDaylight() ? "weather-img background night" : "weather-img background"}></div>
+          <div className={GetBackground()}></div>
           <div className={IsSnowy() ? "weather-img ground snowy" : "weather-img ground"}></div>
           <div className={IsSnowy() ? "weather-img trees snowy" : "weather-img trees"}></div>
-          <div className={!IsDaylight() ? "weather-img weather-img-upper-right sun" : "weather-img weather-img-upper-right sun moon"}></div>
+          <div className={IsDaylight() ? "weather-img weather-img-upper-right sun" : "weather-img weather-img-upper-right sun moon"}></div>
           <div className={IsCloudy() ? "weather-img weather-img-upper-right clouds" : "weather-img weather-img-upper-right"}></div>
           <div className={IsRaining() ? "weather-img weather-img-upper-right rain" : "weather-img weather-img-upper-right"}></div>
         </div>
-        <main className={IsDaylight() ? "font-light" : "font-dark"}>
+        <main>
           <div className="search-box">
             <input
               type="text"
