@@ -135,7 +135,7 @@ main {
   border: none;
   outline: none;
 
-  background-color: rgba(65, 65, 65, 0.35);
+  background-color: rgba(65, 65, 65, 0.1);
   color: white;
   font-size: 17px;
   border-radius: 100px;
@@ -144,7 +144,7 @@ main {
 }
 
 .search-bar:focus {
-  background-color: rgba(65, 65, 65, 0.45);
+  background-color: rgba(65, 65, 65, 0.25);
 }
 
 .location-box {
