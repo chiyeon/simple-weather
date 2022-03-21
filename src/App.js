@@ -34,38 +34,38 @@ function App() {
   }
 
   const IsDaylight = (d) => {
-    if (typeof weather.main == "undefined")
+    if (typeof weather.main === "undefined")
       return false;
     return weather.dt < weather.sys.sunrise;
   }
 
   const IsCloudy = () => {
-    if (typeof weather.main == "undefined")
+    if (typeof weather.main === "undefined")
       return false;
-    return weather.weather[0].main == "Clouds" || weather.weather[0].main == "Snow" || weather.weather[0].main == "Rain";
+    return weather.weather[0].main === "Clouds" || weather.weather[0].main === "Snow" || weather.weather[0].main === "Rain";
   }
 
   const IsSnowy = () => {
-    if (typeof weather.main == "undefined")
+    if (typeof weather.main === "undefined")
       return false;
-    return weather.weather[0].main == "Snow";
+    return weather.weather[0].main === "Snow";
   }
 
   const IsRaining = () => {
-    if (typeof weather.main == "undefined")
+    if (typeof weather.main === "undefined")
       return false;
-    return weather.weather[0].main == "Rain";
+    return weather.weather[0].main === "Rain";
   }
 
   return (
     <div className="app">
         <div className="weather-container">
           <div className={IsDaylight() ? "weather-img background night" : "weather-img background"}></div>
-          <div className={IsSnowy() ? "weather-img trees snowy" : "weather-img trees"}></div>
           <div className={IsSnowy() ? "weather-img ground snowy" : "weather-img ground"}></div>
-          <div className={!IsDaylight() ? "weather-img sun" : "weather-img sun moon"}></div>
-          <div className={IsCloudy() ? "weather-img clouds" : "weather-img"}></div>
-          <div className={IsRaining() ? "weather-img rain" : ""}></div>
+          <div className={IsSnowy() ? "weather-img trees snowy" : "weather-img trees"}></div>
+          <div className={!IsDaylight() ? "weather-img weather-img-upper-right sun" : "weather-img weather-img-upper-right sun moon"}></div>
+          <div className={IsCloudy() ? "weather-img weather-img-upper-right clouds" : "weather-img weather-img-upper-right"}></div>
+          <div className={IsRaining() ? "weather-img weather-img-upper-right rain" : "weather-img weather-img-upper-right"}></div>
         </div>
         <main className={IsDaylight() ? "font-light" : "font-dark"}>
           <div className="search-box">
