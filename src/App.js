@@ -9,6 +9,7 @@ function App() {
 
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
+  const [showWelcome, setShowWelcome] = useState(true);
 
   /* retrieve previous location from local storage */
   useEffect(() => {
@@ -19,6 +20,7 @@ function App() {
   }, [])
 
   const updateWeather = (q) => {
+    setShowWelcome(q === "" ? true : false);
     fetch(`${api.base}weather?q=${q}&units=imperial&APPID=${api.key}`)
         .then(res => res.json())
         .then(result => {
@@ -98,6 +100,10 @@ function App() {
               onKeyPress={search}
             />
           </div>
+          {showWelcome ? <div className="welcome-message">
+            <h2>Hello</h2>
+            <p>Enter a location to begin</p>
+          </div> : ""}
           {(typeof weather.main != "undefined") ? (
           <div className="info-container">
             <div className="location-box">

@@ -173,3 +173,8 @@ main {
   font-size: 18px;
   font-weight: bold;
 }
+
+.welcome-message {
+  text-align: center;
+  padding-top: 35vh;
+}
