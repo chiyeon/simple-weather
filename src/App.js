@@ -68,6 +68,7 @@ function App() {
   }
 
   const IsRaining = () => {
+    return true;
     if (typeof weather.main === "undefined")
       return false;
     return weather.weather[0].main === "Rain";
