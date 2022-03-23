@@ -26,13 +26,13 @@ function App() {
         .then(result => {
           localStorage.setItem("prevLocation", q);
           setWeather(result);
-          setQuery('');
         });
   }
 
   const search = evt => {
     if (evt.key === "Enter") {
-      updateWeather(query)
+      updateWeather(query);
+      setQuery('');
     }
   }
   
