@@ -1,9 +1,7 @@
-# Simple Weather
-Simple Weather is just that, a *simple weather app.*
+![title image](./previews/title.png)
 
-Written in ReactJS, simply type in a location & the app will display the current date & weather alongside cute graphics, dynamically updated based on the time of day, weather conditions, and so on.
+Written in ReactJS and powered by the OpenWeatherMap API, simply type in a location & the app will display the current date & weather alongside cute graphics, dynamically updated based on the time of day and weather conditions.
 
- **[Try it yourself!](https://www.benjibenji.com/simple-weather/)**
+## **[Try it out!](https://www.benjibenji.com/simple-weather/)**
 
-## Preview
-![simple weather preview](./previews/tokyo.png)
+![simple weather preview](./previews/5_loc_preview.png)
